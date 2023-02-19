@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <head>
   <title>OpenAI Quickstart</title>
-  <link
+  <!-- <link
     rel="shortcut icon"
     href="{{ url_for('static', filename='dog.png') }}"
-  />
+  /> -->
+  <link
+  rel="shortcut icon"
+  href="{{ url_for('static', filename='hype_bot.svg') }}"
+/>
   <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" />
 </head>
 
 <body>
-  <img src="{{ url_for('static', filename='dog.png') }}" class="icon" />
-  <h3>Name my pet</h3>
+  <img src="{{ url_for('static', filename='hype_bot.svg') }}" class="icon" />
+  <h3>Jason's Job Hypebot</h3>
   <form action="/" method="post">
-    <input type="text" name="animal" placeholder="Enter an animal" required />
-    <input type="submit" value="Generate names" />
+    <input type="text" name="inquiry" placeholder="Ask me about Jason and his work..." required />
+    <input type="submit" value="Generate helpful hiring information" />
   </form>
   {% if result %}
   <div class="result">{{ result }}</div>
