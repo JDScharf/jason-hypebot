@@ -19,9 +19,9 @@ def index():
         # )
 
         response = openai.Completion.create(
-        model="text-davinci-003",
+        model="gpt-3.5-turbo-1106",
         prompt=generate_prompt(inquiry),
-        temperature=0.7,
+        temperature=1.2,
         max_tokens=1000,
         top_p=1,
         frequency_penalty=0,
