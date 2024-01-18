@@ -14,7 +14,7 @@ def index():
         inquiry = request.form["inquiry"]
 
         response = openai.Completion.create(
-        model="gpt-3.5-turbo-1106",
+        model="gpt-3.5-turbo-instruct",
         prompt=generate_prompt(inquiry),
         temperature=1.2,
         max_tokens=1000,
