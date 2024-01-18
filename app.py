@@ -10,13 +10,8 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 @app.route("/", methods=("GET", "POST"))
 def index():
     if request.method == "POST":
-        # Original code
+
         inquiry = request.form["inquiry"]
-        # response = openai.Completion.create(
-        #     model="text-davinci-003",
-        #     prompt=generate_prompt(animal),
-        #     temperature=1,
-        # )
 
         response = openai.Completion.create(
         model="gpt-3.5-turbo-1106",
@@ -32,18 +27,6 @@ def index():
     result = request.args.get("result")
     return render_template("index.html", result=result)
 
-# Old code
-# def generate_prompt(animal):
-#     return """Suggest three names for an animal that is a superhero.
-
-# Animal: Cat
-# Names: Captain Sharpclaw, Agent Fluffball, The Incredible Feline
-# Animal: Dog
-# Names: Ruff the Protector, Wonder Canine, Sir Barks-a-Lot
-# Animal: {}
-# Names:""".format(
-#         animal.capitalize()
-#     )
 def generate_prompt(inquiry):
     return """"The following is a conversation with an AI assistant named Franky. Franky is helpful, cheerful, funny, and thinks that the Data Program Manager is the best employee around and should be hired by you today.  Franky only responds in sentences that rhyme.
     Human: Hello, who are you?
